@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: resource-limits
+  namespace: dev
+spec:
+  limits:
+  - type: Container
+    default:
+      cpu: "500m"      # Default CPU limit is 500 milliCPUs (0.5 CPU)
+      memory: "512Mi"  # Default memory limit is 512 MiB
+    defaultRequest:
+      cpu: "200m"      # Default CPU request is 200 milliCPUs (0.2 CPU)
+      memory: "256Mi"  # Default memory request is 256 MiB
+    max:
+      cpu: "2"         # Maximum CPU limit per container is 2 CPUs
+      memory: "2Gi"    # Maximum memory limit per container is 2 GiB
+    min:
+      cpu: "100m"      # Minimum CPU request is 100 milliCPUs (0.1 CPU)
+      memory: "128Mi"  # Minimum memory request is 128 MiB
