@@ -1,0 +1,13 @@
+# pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sleeper-pod
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: ubuntu-sleeper
+    image: ubuntu:latest  # Ubuntu image
+    command: ["/bin/bash", "-c"]  # Custom command to run
+    args: ["echo 'Hello, Ubuntu!'; sleep 3600"]  # Arguments for the command
